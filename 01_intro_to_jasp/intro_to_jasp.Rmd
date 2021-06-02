@@ -55,7 +55,7 @@ Note that the row numbers are not part of Arbuthnot's data. JASP adds these row 
 
 Just to the left of the name of each variable, you should see an icon of a ruler. If you click this icon, you will see three options. This allows you to specify whether JASP should interpret the varaible as a scale, ordinal, or nominal variable. JASP will try to select the correct type when it loads the data. We will leave these variables as scale.
 
-## Some Exploration
+## Some exploration
 
 Let's start to examine the data a little more closely. Click the `Descriptives` button near the top of the window. You will see the list of variables in one box. We can move the variable `boys` to the box labeled `Variables` to see some descriptive statistics for that variable. You can move the variable over by double clicking the variable name, by clicking and dragging the variable name, or by clicking the varaible name and then clicking the arrow between the boxes pointed at the `Variables` box.
 
@@ -89,151 +89,41 @@ Next, the button with the plus sign allows you to duplicate an analysis, in case
 
 We can now create lots of analyses, but we also want to provide written context and interpretations. Next to the title of a section, click the arrow, and select `Add Note`. You will see a text box at the beginning of the section and the end of the section, where you can add introductions and conclusions. Similarly, if you click the arrow next to the heading above a scatter plot, you can add a note to describe what is going on in the scatterplot.
 
-### R as a big calculator
-
-XXX CONTINUE
-
-
-Now, suppose we want to plot the total number of baptisms. To compute this, we could use the fact that we can use `R` as a big calculator. To do this, we can type in mathematical expressions such as the below calculation into the console.
-
-```{r calc-total-bapt-numbers}
-5218 + 4683
-```
-
-This calculation would provide us with the total number of baptisms in 1629. We could then repeat this calculation once for each year. This would probably take us a while, but luckily there is a faster way! If we add the vector for baptisms for boys to that of girls, `R` can compute each of these sums simultaneously.
-
-```{r calc-total-bapt-vars}
-arbuthnot$boys + arbuthnot$girls
-```
-
-What you will see is a list of 82 numbers. These numbers appear as a list, because we are working with vectors rather than a data frame. Each number represents the sum of how many boys and girls were baptized that year. You can take a look at the first few rows of the `boys` and `girls` columns to see if the calculation is right.
-
 ### Adding a new variable to the data frame
 
-We are interested in using this new vector of the total number of baptisms to generate some plots, so we'll want to save it as a permanent column in our data frame. We can do this using the following code:
+We are interested in using a new vector of the total number of baptisms to generate some plots, so we'll want to add it as a column in our data.
 
-```{r calc-total-bapt-vars-save}
-arbuthnot <- arbuthnot %>%
-  mutate(total = boys + girls)
-```
+Close the descriptives view to go back to viewing the data. Click the plus button to the right of the `girls` variable name. This will bring up a menu for creating a new variable. In the box for name, enter `total`. Then click `Create Column`. This brings up a menu for creating the new variable. Click `boys`, then the plus sign, then `girls`, then click `Compute column`.
 
-This code has a lot of new pieces to it, so let's break it down. In the first line we are doing two things, (1) adding a new `total` column to this updated data frame, and (2) overwriting the existing `arbutnot` data frame with an updated data frame that includes the new `total` column. We are able to chain these two processes together using the **piping** (`%>%`) operator. The piping operator takes the output of the previous expression and "pipes it" into the first argument of the next expression.
+You'll see that there is now a new column called `total` that has been tacked onto the data.
 
-To continue our analogy with mathematical functions, `x %>% f(y)` is equivalent to `f(x, y)`. Connecting `arbuthnot` and `mutate(total = boys + girls)` with the pipe operator is the same as typing `mutate(arbuthnot, total = boys + girls)`, where `arbuthnot` becomes the first argument included in the `mutate()` function.
+1. Create a scatterplot of the total number of baptisms per year.
 
-::: {#boxedtext}
-**A note on piping:** Note that we can read these two lines of code as the following:
+In a similar fashion, once you know the total number of baptisms for boys and girls in 1629, you can compute the ratio of the number of boys to the number of girls baptized.
 
-*"Take the `arbuthnot` dataset and **pipe** it into the `mutate` function. Mutate the `arbuthnot` data set by creating a new variable called `total` that is the sum of the variables called `boys` and `girls`. Then assign the resulting dataset to the object called `arbuthnot`, i.e. overwrite the old `arbuthnot` dataset with the new one containing the new variable."*
+1. Create a new variable called `boy_to_girl_ratio` given by `boys`/`girls`.
 
-This is equivalent to going through each row and adding up the `boys` and `girls` counts for that year and recording that value in a new column called `total`.
-:::
+You can also compute the proportion of newborns that are boys.
 
-<div>
+1. Create a new variable named `boy_ratio` to the dataset by dividing `boys` by `total`. Notice that rather than dividing by `boys + girls` we are using the `total` variable we created earlier in our calculations!
 
-**Where is the new variable?** When you make changes to variables in your dataset, click on the name of the dataset again to update it in the data viewer.
+1.  Now, generate a plot of the proportion of boys born over time. What do you see? Put your description of what you see in a note. 
 
-</div>
+Finally, in addition to simple mathematical operators like subtraction and division, you can ask JASP to make comparisons like greater than, `>`, less than, `<`, and equality, `=`. For example, we can create a new variable called `more_boys` that tells us whether the number of births of boys outnumbered that of girls in each year. To do this, create a new variable, name it `more_boys` and enter `boys` then the greater than sign (>) then `girls`. Click `Compute column`, and you will see a column with 1's. Because this inequality is either true or false, JASP will put a 1 in the column when the condition is true, and a 0 when the condition is false.
 
-You'll see that there is now a new column called `total` that has been tacked onto the data frame. The special symbol `<-` performs an *assignment*, taking the output of the piping operations and saving it into an object in your environment. In this case, you already have an object called `arbuthnot` in your environment, so this command updates that data set with the new mutated column.
+## More practice
 
-You can make a line plot of the total number of baptisms per year with the following code:
+In the previous few pages, you recreated some of the displays and preliminary analysis of Arbuthnot's baptism data. Your assignment involves repeating these steps, but for present day birth records in the United States. The data are stored in a dataset called `present`, which you can download [here](./more/present.csv).
 
-```{r plot-total-vs-year}
-ggplot(data = arbuthnot, aes(x = year, y = total)) + 
-  geom_line()
-```
+Answer the following questions with the `present` dataset:
 
-In an similar fashion, once you know the total number of baptisms for boys and girls in 1629, you can compute the ratio of the number of boys to the number of girls baptized with the following code:
-
-```{r calc-prop-boys-to-girls-numbers}
-5218 / 4683
-```
-
-Alternatively, you could calculate this ratio for every year by acting on the complete `boys` and `girls` columns, and then save those calculations into a new variable named `boy_to_girl_ratio`:
-
-```{r calc-prop-boys-to-girls-vars}
-arbuthnot <- arbuthnot %>%
-  mutate(boy_to_girl_ratio = boys / girls)
-```
-
-You can also compute the proportion of newborns that are boys in 1629 with the following code:
-
-```{r calc-prop-boys-numbers}
-5218 / (5218 + 4683)
-```
-
-Or you can compute this for all years simultaneously and add it as a new variable named `boy_ratio` to the dataset:
-
-```{r calc-prop-boys-vars}
-arbuthnot <- arbuthnot %>%
-  mutate(boy_ratio = boys / total)
-```
-
-Notice that rather than dividing by `boys + girls` we are using the `total` variable we created earlier in our calculations!
-
-3.  Now, generate a plot of the proportion of boys born over time. What do you see?
-
-<div>
-
-**Tip:** If you use the up and down arrow keys in the console, you can scroll through your previous commands, your so-called command history. You can also access your command history by clicking on the history tab in the upper right panel. This can save you a lot of typing in the future.
-
-</div>
-
-Finally, in addition to simple mathematical operators like subtraction and division, you can ask R to make comparisons like greater than, `>`, less than, `<`, and equality, `==`. For example, we can create a new variable called `more_boys` that tells us whether the number of births of boys outnumbered that of girls in each year with the following code:
-
-```{r boys-more-than-girls}
-arbuthnot <- arbuthnot %>%
-  mutate(more_boys = boys > girls)
-```
-
-This command adds a new variable to the `arbuthnot` data frame containing the values of either `TRUE` if that year had more boys than girls, or `FALSE` if that year did not (the answer may surprise you). This variable contains a different kind of data than we have encountered so far. All other columns in the `arbuthnot` data frame have values that are numerical (the year, the number of boys and girls). Here, we've asked R to create *logical* data, data where the values are either `TRUE` or `FALSE`. In general, data analysis will involve many different kinds of data types, and one reason for using `R` is that it is able to represent and compute with many of them.
-
-## More Practice
-
-In the previous few pages, you recreated some of the displays and preliminary analysis of Arbuthnot's baptism data. Your assignment involves repeating these steps, but for present day birth records in the United States. The data are stored in a data frame called `present`.
-
-To find the minimum and maximum values of columns, you can use the functions `min()` and `max()` within a `summarize()` call, which you will learn more about in the following lab.
-
-Here's an example of how to find the minimum and maximum amount of boy births in a year:
-
-```{r summarize min and max}
-arbuthnot %>%
-  summarize(min = min(boys),
-            max = max(boys)
-            )
-```
-
-Answer the following questions with the `present` data frame:
-
-1.  What years are included in this data set? What are the dimensions of the data frame? What are the variable (column) names?
+1.  What years are included in this data set? How many variables are there? How many ibservations? What are the variable (column) names?
 
 2.  How do these counts compare to Arbuthnot's? Are they of a similar magnitude?
 
-3.  Make a plot that displays the proportion of boys born over time. What do you see? Does Arbuthnot's observation about boys being born in greater proportion than girls hold up in the U.S.? Include the plot in your response. *Hint:* You should be able to reuse your code from Exercise 3 above, just replace the name of the data frame.
+3.  Make a plot that displays the proportion of boys born over time. What do you see? Does Arbuthnot's observation about boys being born in greater proportion than girls hold up in the U.S.? Include the plot in your response.
 
-4.  In what year did we see the most total number of births in the U.S.? *Hint:* First calculate the totals and save it as a new variable. Then, sort your dataset in descending order based on the `total` column. You can do this interactively in the data viewer by clicking on the arrows next to the variable names. To include the sorted result in your report you will need to use two new functions. First we use `arrange()` to sorting the variable. Then we can arrange the data in a descending order with another function, `desc()`, for descending order. The sample code is provided below.
-
-```{r sample-arrange, eval=FALSE}
-present %>%
-  arrange(desc(total))
-```
-
-These data come from reports by the Centers for Disease Control. You can learn more about them by bringing up the help file using the command `?present`.
-
-## Resources for learning R and working in RStudio
-
-That was a short introduction to R and RStudio, but we will provide you with more functions and a more complete sense of the language as the course progresses.
-
-In this course we will be using the suite of R packages from the **tidyverse**. The book [R For Data Science](https://r4ds.had.co.nz/) by Grolemund and Wickham is a fantastic resource for data analysis in R with the tidyverse. If you are Goggling for R code, make sure to also include these package names in your search query. For example, instead of Goggling "scatterplot in R", Goggle "scatterplot in R with the tidyverse".
-
-These may come in handy throughout the semester:
-
--   [RMarkdown cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf)
--   [Data transformation cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/data-transformation.pdf)
--   [Data visualization cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/data-visualization-2.1.pdf)
-
-Note that some of the code on these cheatsheets may be too advanced for this course. However the majority of it will become useful throughout the semester.
+These data come from reports by the Centers for Disease Control. You can learn more about them [here](./more/present-readme.txt).
 
 ------------------------------------------------------------------------
 
