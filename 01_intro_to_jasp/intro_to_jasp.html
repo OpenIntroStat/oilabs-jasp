@@ -59,6 +59,15 @@ if (!!window.navigator.userAgent.match("MSIE 8")) {
 !function(a){"use strict";a.matchMedia=a.matchMedia||function(a){var b,c=a.documentElement,d=c.firstElementChild||c.firstChild,e=a.createElement("body"),f=a.createElement("div");return f.id="mq-test-1",f.style.cssText="position:absolute;top:-100em",e.style.background="none",e.appendChild(f),function(a){return f.innerHTML='&shy;<style media="'+a+'"> #mq-test-1 { width: 42px; }</style>',c.insertBefore(e,d),b=42===f.offsetWidth,c.removeChild(e),{matches:b,media:a}}}(a.document)}(this),function(a){"use strict";function b(){u(!0)}var c={};a.respond=c,c.update=function(){};var d=[],e=function(){var b=!1;try{b=new a.XMLHttpRequest}catch(c){b=new a.ActiveXObject("Microsoft.XMLHTTP")}return function(){return b}}(),f=function(a,b){var c=e();c&&(c.open("GET",a,!0),c.onreadystatechange=function(){4!==c.readyState||200!==c.status&&304!==c.status||b(c.responseText)},4!==c.readyState&&c.send(null))};if(c.ajax=f,c.queue=d,c.regex={media:/@media[^\{]+\{([^\{\}]*\{[^\}\{]*\})+/gi,keyframes:/@(?:\-(?:o|moz|webkit)\-)?keyframes[^\{]+\{(?:[^\{\}]*\{[^\}\{]*\})+[^\}]*\}/gi,urls:/(url\()['"]?([^\/\)'"][^:\)'"]+)['"]?(\))/g,findStyles:/@media *([^\{]+)\{([\S\s]+?)$/,only:/(only\s+)?([a-zA-Z]+)\s?/,minw:/\([\s]*min\-width\s*:[\s]*([\s]*[0-9\.]+)(px|em)[\s]*\)/,maxw:/\([\s]*max\-width\s*:[\s]*([\s]*[0-9\.]+)(px|em)[\s]*\)/},c.mediaQueriesSupported=a.matchMedia&&null!==a.matchMedia("only all")&&a.matchMedia("only all").matches,!c.mediaQueriesSupported){var g,h,i,j=a.document,k=j.documentElement,l=[],m=[],n=[],o={},p=30,q=j.getElementsByTagName("head")[0]||k,r=j.getElementsByTagName("base")[0],s=q.getElementsByTagName("link"),t=function(){var a,b=j.createElement("div"),c=j.body,d=k.style.fontSize,e=c&&c.style.fontSize,f=!1;return b.style.cssText="position:absolute;font-size:1em;width:1em",c||(c=f=j.createElement("body"),c.style.background="none"),k.style.fontSize="100%",c.style.fontSize="100%",c.appendChild(b),f&&k.insertBefore(c,k.firstChild),a=b.offsetWidth,f?k.removeChild(c):c.removeChild(b),k.style.fontSize=d,e&&(c.style.fontSize=e),a=i=parseFloat(a)},u=function(b){var c="clientWidth",d=k[c],e="CSS1Compat"===j.compatMode&&d||j.body[c]||d,f={},o=s[s.length-1],r=(new Date).getTime();if(b&&g&&p>r-g)return a.clearTimeout(h),h=a.setTimeout(u,p),void 0;g=r;for(var v in l)if(l.hasOwnProperty(v)){var w=l[v],x=w.minw,y=w.maxw,z=null===x,A=null===y,B="em";x&&(x=parseFloat(x)*(x.indexOf(B)>-1?i||t():1)),y&&(y=parseFloat(y)*(y.indexOf(B)>-1?i||t():1)),w.hasquery&&(z&&A||!(z||e>=x)||!(A||y>=e))||(f[w.media]||(f[w.media]=[]),f[w.media].push(m[w.rules]))}for(var C in n)n.hasOwnProperty(C)&&n[C]&&n[C].parentNode===q&&q.removeChild(n[C]);n.length=0;for(var D in f)if(f.hasOwnProperty(D)){var E=j.createElement("style"),F=f[D].join("\n");E.type="text/css",E.media=D,q.insertBefore(E,o.nextSibling),E.styleSheet?E.styleSheet.cssText=F:E.appendChild(j.createTextNode(F)),n.push(E)}},v=function(a,b,d){var e=a.replace(c.regex.keyframes,"").match(c.regex.media),f=e&&e.length||0;b=b.substring(0,b.lastIndexOf("/"));var g=function(a){return a.replace(c.regex.urls,"$1"+b+"$2$3")},h=!f&&d;b.length&&(b+="/"),h&&(f=1);for(var i=0;f>i;i++){var j,k,n,o;h?(j=d,m.push(g(a))):(j=e[i].match(c.regex.findStyles)&&RegExp.$1,m.push(RegExp.$2&&g(RegExp.$2))),n=j.split(","),o=n.length;for(var p=0;o>p;p++)k=n[p],l.push({media:k.split("(")[0].match(c.regex.only)&&RegExp.$2||"all",rules:m.length-1,hasquery:k.indexOf("(")>-1,minw:k.match(c.regex.minw)&&parseFloat(RegExp.$1)+(RegExp.$2||""),maxw:k.match(c.regex.maxw)&&parseFloat(RegExp.$1)+(RegExp.$2||"")})}u()},w=function(){if(d.length){var b=d.shift();f(b.href,function(c){v(c,b.href,b.media),o[b.href]=!0,a.setTimeout(function(){w()},0)})}},x=function(){for(var b=0;b<s.length;b++){var c=s[b],e=c.href,f=c.media,g=c.rel&&"stylesheet"===c.rel.toLowerCase();e&&g&&!o[e]&&(c.styleSheet&&c.styleSheet.rawCssText?(v(c.styleSheet.rawCssText,e,f),o[e]=!0):(!/^([a-zA-Z:]*\/\/)/.test(e)&&!r||e.replace(RegExp.$1,"").split("/")[0]===a.location.host)&&("//"===e.substring(0,2)&&(e=a.location.protocol+e),d.push({href:e,media:f})))}w()};x(),c.update=x,c.getEmValue=t,a.addEventListener?a.addEventListener("resize",b,!1):a.attachEvent&&a.attachEvent("onresize",b)}}(this);
 };
 </script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
 <script>/*! jQuery UI - v1.11.4 - 2016-01-05
 * http://jqueryui.com
 * Includes: core.js, widget.js, mouse.js, position.js, draggable.js, droppable.js, resizable.js, selectable.js, sortable.js, accordion.js, autocomplete.js, button.js, dialog.js, menu.js, progressbar.js, selectmenu.js, slider.js, spinner.js, tabs.js, tooltip.js, effect.js, effect-blind.js, effect-bounce.js, effect-clip.js, effect-drop.js, effect-explode.js, effect-fade.js, effect-fold.js, effect-highlight.js, effect-puff.js, effect-pulsate.js, effect-scale.js, effect-shake.js, effect-size.js, effect-slide.js, effect-transfer.js
@@ -308,7 +317,7 @@ float: none;
         self._setEventHandlers();
 
         // Binding to the Window load event to make sure the correct scrollTop is calculated
-        $(window).load(function() {
+        $(window).on("load", function() {
 
           // Sets the active TOC item
           self._setActiveElement(true);
@@ -1275,45 +1284,6 @@ window.buildTabsets = function(tocID) {
 };
 
 </script>
-<style type="text/css">
-a.anchor-section {margin-left: 10px; visibility: hidden; color: inherit;}
-a.anchor-section::before {content: '#';}
-.hasAnchor:hover a.anchor-section {visibility: visible;}
-</style>
-<script>// Anchor sections v1.0 written by Atsushi Yasumoto on Oct 3rd, 2020.
-document.addEventListener('DOMContentLoaded', function() {
-  // Do nothing if AnchorJS is used
-  if (typeof window.anchors === 'object' && anchors.hasOwnProperty('hasAnchorJSLink')) {
-    return;
-  }
-
-  const h = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
-
-  // Do nothing if sections are already anchored
-  if (Array.from(h).some(x => x.classList.contains('hasAnchor'))) {
-    return null;
-  }
-
-  // Use section id when pandoc runs with --section-divs
-  const section_id = function(x) {
-    return ((x.classList.contains('section') || (x.tagName === 'SECTION'))
-            ? x.id : '');
-  };
-
-  // Add anchors
-  h.forEach(function(x) {
-    const id = x.id || section_id(x.parentElement);
-    if (id === '') {
-      return null;
-    }
-    let anchor = document.createElement('a');
-    anchor.href = '#' + id;
-    anchor.classList = ['anchor-section'];
-    x.classList.add('hasAnchor');
-    x.appendChild(anchor);
-  });
-});
-</script>
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -1327,32 +1297,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-<style type="text/css">
-h1 {
-  font-size: 34px;
-}
-h1.title {
-  font-size: 38px;
-}
-h2 {
-  font-size: 30px;
-}
-h3 {
-  font-size: 24px;
-}
-h4 {
-  font-size: 18px;
-}
-h5 {
-  font-size: 16px;
-}
-h6 {
-  font-size: 12px;
-}
-.table th:not([align]) {
-  text-align: left;
-}
-</style>
+
 
 <style type="text/css">body {
 counter-reset: li; 
@@ -1440,10 +1385,6 @@ border-radius: 5px;
   margin-left: auto;
   margin-right: auto;
 }
-code {
-  color: inherit;
-  background-color: rgba(0, 0, 0, 0.04);
-}
 img {
   max-width:100%;
 }
@@ -1459,6 +1400,9 @@ button.code-folding-btn:focus {
 summary {
   display: list-item;
 }
+pre code {
+  padding: 0;
+}
 </style>
 
 
@@ -1471,7 +1415,6 @@ summary {
   max-height: 500px;
   min-height: 44px;
   overflow-y: auto;
-  background: white;
   border: 1px solid #ddd;
   border-radius: 4px;
 }
@@ -1597,7 +1540,7 @@ div.tocify {
 
 
 <!-- setup 3col/9col grid for toc_float and main content  -->
-<div class="row-fluid">
+<div class="row">
 <div class="col-xs-12 col-sm-4 col-md-3">
 <div id="TOC" class="tocify">
 </div>
@@ -1608,7 +1551,7 @@ div.tocify {
 
 
 
-<div class="fluid-row" id="header">
+<div id="header">
 
 
 
@@ -1640,15 +1583,15 @@ div.tocify {
 <p>Note that the row numbers are not part of Arbuthnot’s data. JASP adds these row numbers as part of its printout to help you make visual comparisons. You can think of them as the index that you see on the left side of a spreadsheet. In fact, the comparison of the data to a spreadsheet will generally be helpful.</p>
 <div id="types-of-variables" class="section level3">
 <h3>Types of Variables</h3>
-<p>Just to the left of the name of each variable, you should see an icon of a ruler. If you click this icon, you will see three options. This allows you to specify whether JASP should interpret the varaible as a scale, ordinal, or nominal variable. JASP will try to select the correct type when it loads the data. We will leave these variables as scale.</p>
+<p>Just to the left of the name of each variable, you should see an icon of a ruler. If you click this icon, you will see three options. This allows you to specify whether JASP should interpret the variable as a scale, ordinal, or nominal variable. JASP will try to select the correct type when it loads the data. We will leave these variables as scale.</p>
 </div>
 </div>
 <div id="some-exploration" class="section level2">
 <h2>Some exploration</h2>
-<p>Let’s start to examine the data a little more closely. Click the <code>Descriptives</code> button near the top of the window. You will see the list of variables in one box. We can move the variable <code>boys</code> to the box labeled <code>Variables</code> to see some descriptive statistics for that variable. You can move the variable over by double clicking the variable name, by clicking and dragging the variable name, or by clicking the varaible name and then clicking the arrow between the boxes pointed at the <code>Variables</code> box.</p>
+<p>Let’s start to examine the data a little more closely. Click the <code>Descriptives</code> button near the top of the window. You will see the list of variables in one box. We can move the variable <code>boys</code> to the box labeled <code>Variables</code> to see some descriptive statistics for that variable. You can move the variable over by double clicking the variable name, by clicking and dragging the variable name, or by clicking the variable name and then clicking the arrow between the boxes pointed at the <code>Variables</code> box.</p>
 <p>You will then see the results in the right hand side of the window. You should see that there are 82 valid observations, no data is missing, and you will see various other descriptive statistics for that variable. You can add an additional variable to the <code>Variables</code> box, and you will then see descriptives for each variable in the box. Do this with <code>girls</code> to see how the two variables compare.</p>
 <ol style="list-style-type: decimal">
-<li>How many valid oberservations are there for the variables <code>girls</code>? Are any values missing?</li>
+<li>How many valid observations are there for the variables <code>girls</code>? Are any values missing?</li>
 </ol>
 <div id="creating-a-jasp-file" class="section level3">
 <h3>Creating a JASP file</h3>
@@ -1657,7 +1600,7 @@ div.tocify {
 <div id="data-visualization" class="section level3">
 <h3>Data visualization</h3>
 <p>In JASP, we can use the same descriptives section to generate graphics. To create a simple plot of the number of girls baptized per year, we will start by selecting the variables we are interested in. Move the variables so the <code>Variables</code> box contains <code>year</code> and <code>girls</code>. Next, click <code>Plots</code> below the boxes on the left hand side of the screen to see the plotting options. We’ll make a scatter plot, so check the box next to <code>Scatter Plots</code>.</p>
-<p>JASP adds a number of features to the scatter plot. By default, each variable is being plotted with a density, which is essentially a smoothed histograph. By clicking the radio buttons, you can change this to a hisogram, or turn it off. We can also include the regression line (which is turned on by default) or turn it off by unchecking the box next to <code>Add regression line</code>. Turning the graphs above and to the right of the scatter plot to <code>None</code> and turning off the regression line will produce a standard scatterplot.</p>
+<p>JASP adds a number of features to the scatter plot. By default, each variable is being plotted with a density, which is essentially a smoothed histogram. By clicking the radio buttons, you can change this to a histogram, or turn it off. We can also include the regression line (which is turned on by default) or turn it off by unchecking the box next to <code>Add regression line</code>. Turning the graphs above and to the right of the scatter plot to <code>None</code> and turning off the regression line will produce a standard scatterplot.</p>
 <p>JASP will use the variables in the variable box in order: the first variable will be on the x-axis and the second variable will be on the y-axis. Try switching the order of the variables by clicking and dragging them. See how your plot changes.</p>
 <p>Use the plot to address the following question:</p>
 <ol style="list-style-type: decimal">
@@ -1698,7 +1641,7 @@ div.tocify {
 <p>In the previous few pages, you recreated some of the displays and preliminary analysis of Arbuthnot’s baptism data. Your assignment involves repeating these steps, but for present day birth records in the United States. The data are stored in a dataset called <code>present</code>, which you can download <a href="./more/present.csv">here</a>.</p>
 <p>Answer the following questions with the <code>present</code> dataset:</p>
 <ol style="list-style-type: decimal">
-<li><p>What years are included in this data set? How many variables are there? How many ibservations? What are the variable (column) names?</p></li>
+<li><p>What years are included in this data set? How many variables are there? How many observations? What are the variable (column) names?</p></li>
 <li><p>How do these counts compare to Arbuthnot’s? Are they of a similar magnitude?</p></li>
 <li><p>Make a plot that displays the proportion of boys born over time. What do you see? Does Arbuthnot’s observation about boys being born in greater proportion than girls hold up in the U.S.? Include the plot in your response.</p></li>
 </ol>
@@ -1736,7 +1679,7 @@ $(document).ready(function () {
 
 $(document).ready(function () {
   $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
+    $(this).parent().toggleClass('nav-tabs-open');
   });
 });
 </script>

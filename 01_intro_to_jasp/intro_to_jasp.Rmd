@@ -53,15 +53,15 @@ Note that the row numbers are not part of Arbuthnot's data. JASP adds these row 
 
 ### Types of Variables
 
-Just to the left of the name of each variable, you should see an icon of a ruler. If you click this icon, you will see three options. This allows you to specify whether JASP should interpret the varaible as a scale, ordinal, or nominal variable. JASP will try to select the correct type when it loads the data. We will leave these variables as scale.
+Just to the left of the name of each variable, you should see an icon of a ruler. If you click this icon, you will see three options. This allows you to specify whether JASP should interpret the variable as a scale, ordinal, or nominal variable. JASP will try to select the correct type when it loads the data. We will leave these variables as scale.
 
 ## Some exploration
 
-Let's start to examine the data a little more closely. Click the `Descriptives` button near the top of the window. You will see the list of variables in one box. We can move the variable `boys` to the box labeled `Variables` to see some descriptive statistics for that variable. You can move the variable over by double clicking the variable name, by clicking and dragging the variable name, or by clicking the varaible name and then clicking the arrow between the boxes pointed at the `Variables` box.
+Let's start to examine the data a little more closely. Click the `Descriptives` button near the top of the window. You will see the list of variables in one box. We can move the variable `boys` to the box labeled `Variables` to see some descriptive statistics for that variable. You can move the variable over by double clicking the variable name, by clicking and dragging the variable name, or by clicking the variable name and then clicking the arrow between the boxes pointed at the `Variables` box.
 
 You will then see the results in the right hand side of the window. You should see that there are 82 valid observations, no data is missing, and you will see various other descriptive statistics for that variable. You can add an additional variable to the `Variables` box, and you will then see descriptives for each variable in the box. Do this with `girls` to see how the two variables compare.
 
-1.  How many valid oberservations are there for the variables `girls`? Are any values missing?
+1.  How many valid observations are there for the variables `girls`? Are any values missing?
 
 ### Creating a JASP file
 
@@ -71,7 +71,7 @@ Now that we have some analysis, we should save our file in case we want to come 
 
 In JASP, we can use the same descriptives section to generate graphics. To create a simple plot of the number of girls baptized per year, we will start by selecting the variables we are interested in. Move the variables so the `Variables` box contains `year` and `girls`. Next, click `Plots` below the boxes on the left hand side of the screen to see the plotting options. We'll make a scatter plot, so check the box next to `Scatter Plots`.
 
-JASP adds a number of features to the scatter plot. By default, each variable is being plotted with a density, which is essentially a smoothed histograph. By clicking the radio buttons, you can change this to a hisogram, or turn it off. We can also include the regression line (which is turned on by default) or turn it off by unchecking the box next to `Add regression line`. Turning the graphs above and to the right of the scatter plot to `None` and turning off the regression line will produce a standard scatterplot.
+JASP adds a number of features to the scatter plot. By default, each variable is being plotted with a density, which is essentially a smoothed histogram. By clicking the radio buttons, you can change this to a histogram, or turn it off. We can also include the regression line (which is turned on by default) or turn it off by unchecking the box next to `Add regression line`. Turning the graphs above and to the right of the scatter plot to `None` and turning off the regression line will produce a standard scatterplot.
 
 JASP will use the variables in the variable box in order: the first variable will be on the x-axis and the second variable will be on the y-axis. Try switching the order of the variables by clicking and dragging them. See how your plot changes.
 
@@ -117,7 +117,7 @@ In the previous few pages, you recreated some of the displays and preliminary an
 
 Answer the following questions with the `present` dataset:
 
-1.  What years are included in this data set? How many variables are there? How many ibservations? What are the variable (column) names?
+1.  What years are included in this data set? How many variables are there? How many observations? What are the variable (column) names?
 
 2.  How do these counts compare to Arbuthnot's? Are they of a similar magnitude?
 
