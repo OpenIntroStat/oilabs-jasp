@@ -115,50 +115,25 @@ Which month has the highest average departure delay from an NYC airport? What
 ```
 
 
-XXXXXXX
-
-
 ### On time departure rate for NYC airports
 
 Suppose you will be flying out of NYC and want to know which of the three major NYC airports has the best on time departure rate of departing flights.
 Also supposed that for you, a flight that is delayed for less than 5 minutes is basically "on time."" You consider any flight delayed for 5 minutes of more to be "delayed".
 
-In order to determine which airport has the best on time departure rate, you can
+In order to determine which airport has the best on time departure rate, you can first classify each flight as "on time" or "delayed", then calculate the percentage of flights that are on time for each origin airport.
 
--   first classify each flight as "on time" or "delayed",
--   then group flights by origin airport,
--   then calculate on time departure rates for each origin airport,
--   and finally arrange the airports in descending order for on time departure percentage.
+To do this, we are going to take advantage of a clever idea. While we could label flights being on time with a true or false, we are going to use 1's and 0's. If you use 1's and 0's, the mean of the column of 1's and 0's will be the same as the percentage of the rows that are 1's.
 
-Let's start with classifying each flight as "on time" or "delayed" by creating a new variable with the `mutate` function.
-
-```{r dep-type}
-nycflights <- nycflights %>%
-  mutate(dep_type = ifelse(dep_delay < 5, "on time", "delayed"))
-```
-
-The first argument in the `mutate` function is the name of the new variable we want to create, in this case `dep_type`.
-Then if `dep_delay < 5`, we classify the flight as `"on time"` and `"delayed"` if not, i.e. if the flight is delayed for 5 or more minutes.
-
-Note that we are also overwriting the `nycflights` data frame with the new version of this data frame that includes the new `dep_type` variable.
-
-We can handle all of the remaining steps in one code chunk:
-
-```{r ot-dep-rate}
-nycflights %>%
-  group_by(origin) %>%
-  summarise(ot_dep_rate = sum(dep_type == "on time") / n()) %>%
-  arrange(desc(ot_dep_rate))
-```
+We'll begin by making a new variable. Label this variable `dep_type`, and make it a continuous variable. In the formula for the variable, use `dep_delay<5` to identify flights where the delay is less than 5 minutes. Open the `Descriptives`, and create a table using the newly created variable `dep_type` and split by `origin`. Inspect the means in the table.
 
 1.  If you were selecting an airport simply based on on time departure percentage, which NYC airport would you choose to fly out of?
 
-You can also visualize the distribution of on on time departure rate across the three airports using a segmented bar plot.
+<!-- NOT IN JASP: You can also visualize the distribution of on on time departure rate across the three airports using a segmented bar plot. -->
 
-```{r viz-origin-dep-type}
-ggplot(data = nycflights, aes(x = origin, fill = dep_type)) +
-  geom_bar()
-```
+<!-- ```{r viz-origin-dep-type} -->
+<!-- ggplot(data = nycflights, aes(x = origin, fill = dep_type)) + -->
+<!--   geom_bar() -->
+<!-- ``` -->
 
 ------------------------------------------------------------------------
 
@@ -169,18 +144,20 @@ ggplot(data = nycflights, aes(x = origin, fill = dep_type)) +
 
 2.  Make a scatterplot of `avg_speed` vs. `distance`.
     Describe the relationship between average speed and distance.
-    **Hint:** Use `geom_point()`.
+    <!-- **Hint:** Use `geom_point()`. -->
 
-3.  Replicate the following plot.
-    **Hint:** The data frame plotted only contains flights from American Airlines, Delta Airlines, and United Airlines, and the points are `color`ed by `carrier`.
+3.  Replicate the following plot. This plot uses the `ggplot2` color palette, but you can use any color palet you like.
+    **Hint:** The data frame plotted only contains flights from American Airlines, Delta Airlines, and United Airlines. You can create a filter, and use the "or" ($\lor$) to select only flights that are from those airlines.
     Once you replicate the plot, determine (roughly) what the cutoff point is for departure delays where you can still expect to get to your destination on time.
 
+<!--
 ```{r plot-to-replicate, echo=FALSE, fig.show="asis", fig.width=7, fig.height=4}
 dl_aa_ua <- nycflights %>%
   filter(carrier == "AA" | carrier == "DL" | carrier == "UA")
 ggplot(data = dl_aa_ua, aes(x = dep_delay, y = arr_delay, color = carrier)) +
   geom_point()
 ```
+-->
 
 ------------------------------------------------------------------------
 
