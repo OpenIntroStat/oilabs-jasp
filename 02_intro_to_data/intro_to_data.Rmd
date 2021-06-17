@@ -117,8 +117,7 @@ Which month has the highest average departure delay from an NYC airport? What
 
 ### On time departure rate for NYC airports
 
-Suppose you will be flying out of NYC and want to know which of the three major NYC airports has the best on time departure rate of departing flights.
-Also supposed that for you, a flight that is delayed for less than 5 minutes is basically "on time."" You consider any flight delayed for 5 minutes of more to be "delayed".
+Suppose you will be flying out of NYC and want to know which of the three major NYC airports has the best on time departure rate of departing flights. Also supposed that for you, a flight that is delayed for less than 5 minutes is basically "on time." You consider any flight delayed for 5 minutes of more to be "delayed".
 
 In order to determine which airport has the best on time departure rate, you can first classify each flight as "on time" or "delayed", then calculate the percentage of flights that are on time for each origin airport.
 
@@ -139,14 +138,14 @@ We'll begin by making a new variable. Label this variable `dep_type`, and make i
 
 ## More Practice
 
-1.  Mutate the data frame so that it includes a new variable that contains the average speed, `avg_speed` traveled by the plane for each flight (in mph).
+1.  Create a new variable that contains the average speed, `avg_speed` traveled by the plane for each flight (in mph).
     **Hint:** Average speed can be calculated as distance divided by number of hours of travel, and note that `air_time` is given in minutes.
 
 2.  Make a scatterplot of `avg_speed` vs. `distance`.
     Describe the relationship between average speed and distance.
     <!-- **Hint:** Use `geom_point()`. -->
 
-3.  Replicate the following plot. This plot uses the `ggplot2` color palette, but you can use any color palet you like.
+3.  Replicate the following plot. This plot uses the `ggplot2` color palette, but you can use any color pallet you like.
     **Hint:** The data frame plotted only contains flights from American Airlines, Delta Airlines, and United Airlines. You can create a filter, and use the "or" ($\lor$) to select only flights that are from those airlines.
     Once you replicate the plot, determine (roughly) what the cutoff point is for departure delays where you can still expect to get to your destination on time.
 
