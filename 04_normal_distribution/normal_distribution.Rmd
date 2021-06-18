@@ -46,8 +46,6 @@ It's tempting to say so when faced with a unimodal symmetric distribution.
 To see how accurate that description is, you can plot a normal distribution curve on top of a histogram to see how closely the data follow a normal distribution.
 This normal curve should have the same mean and standard deviation as the data.
 
-
-
 You'll be focusing on calories from fat from Dairy Queen products, so let's first filter out everything except for those products.
 
 Open the `Distributions` menu and select `Normal` in the continuous section. We want to work with our actual data, so click `Generate and Display Data` to show those options. Move `cal_fat` into the `Get variable from data set` box so that we can inspect it further.
@@ -80,32 +78,18 @@ You're left with the same problem that we encountered with the histogram above: 
 
 A useful way to address this question is to rephrase it as: what do probability plots look like for data that I *know* came from a normal distribution?
 
-
-
-
-We can answer this by simulating data from a normal distribution. Make a note of the mean and standard deviation from our `cal_fat` variable - we're going to need them. Still within the Normal distributions menu, we can now click the `Show Distribution` menu. We're going to specify the mean and standard deviation for our distribution, so in the `Parameters` pulldown menu, select $\mu, \sigma$, and in the boxes below, type the mean and standard deviation of our variable in.
+We can answer this by simulating data from a normal distribution. Make a note of the mean and standard deviation from our `cal_fat` variable - we're going to need them. Go back to the data and remove the filter - we don't want the filter to affect the data we're going to generate. Back in the Normal distributions menu, we can now click the `Show Distribution` menu. We're going to specify the mean and standard deviation for our distribution, so in the `Parameters` pulldown menu, select $\mu, \sigma$, and in the boxes below, type the mean and standard deviation of our variable in.
 
 Now open the `Generate and Display Data` section. We're going to simulate data by drawing points from a normal distribution with the same mean and standard deviation as our data. Since we have 42 observations in our dataset, enter 42 into the `Number of samples` box, and give the variable the name `sim_norm`, then click `Draw samples`.
 
-We now have `sim_norm` as a variable that we can work with, so we can inspect it. 
+We now have `sim_norm` as a variable that we can work with, so we can inspect it. You can take a look at the shape of our simulated data set, `sim_norm`, as well as its normal probability plot.
 
-You can take a look at the shape of our simulated data set, `sim_norm`, as well as its normal probability plot.
+3.  Make a normal probability plot (Q-Q plot) of `sim_norm`. Do all of the points fall on the line? How does this plot compare to the probability plot for the real data?
 
-
-XXXXXX
-
-3.  Make a normal probability plot of `sim_norm`. Do all of the points fall on the line? How does this plot compare to the probability plot for the real data? (Since `sim_norm` is not a dataframe, it can be put directly into the `sample` argument and the `data` argument can be dropped.)
-
-Even better than comparing the original plot to a single plot generated from a normal distribution is to compare it to many more plots using the following function.
-It shows the Q-Q plot corresponding to the original data in the top left corner, and the Q-Q plots of 8 different simulated normal data.
-It may be helpful to click the zoom button in the plot window.
-
-<!-- ```{r qqnormsim} -->
-<!-- qqnormsim(sample = cal_fat, data = dairy_queen) -->
-<!-- ``` -->
+Even better than comparing the original plot to a single plot generated from a normal distribution is to compare it to more plots. Click the `Draw samples` button again to generate another set of data using the same parameters.
 
 4.  Does the normal probability plot for the calories from fat look similar to the plots created for the simulated data?
-    That is, do the plots provide evidence that the female heights are nearly normal?
+    That is, do the plots provide evidence that the calories from fat are nearly normal?
 
 5.  Using the same technique, determine whether or not the calories from McDonald's menu appear to come from a normal distribution.
 
@@ -119,23 +103,10 @@ Once you decide that a random variable is approximately normal, you can answer a
 Take, for example, the question of, "What is the probability that a randomly chosen Dairy Queen product has more than 600 calories from fat?"
 
 If we assume that the calories from fat from Dairy Queen's menu are normally distributed (a very close approximation is also okay), we can find this probability by calculating a Z score and consulting a Z table (also called a normal probability table).
-In R, this is done in one step with the function `pnorm()`.
-
-<!-- ```{r pnorm} -->
-<!-- 1 - pnorm(q = 600, mean = dqmean, sd = dqsd) -->
-<!-- ``` -->
-
-Note that the function `pnorm()` gives the area under the normal curve below a given value, `q`, with a given mean and standard deviation.
-Since we're interested in the probability that a Dairy Queen item has more than 600 calories from fat, we have to take one minus that probability.
+In JASP, this is done in the `Show Distributions` section of the Normal menu. Within this menu, make sure parameters is set to $\mu, \sigma$, and mean and standard deviation are correct, then check the `Probability` box under `Highlight`. Select "from 0 to $\infty$", then chance the 0 to 600.
 
 Assuming a normal distribution has allowed us to calculate a theoretical probability.
-If we want to calculate the probability empirically, we simply need to determine how many observations fall above 600 then divide this number by the total sample size.
-
-<!-- ```{r probability} -->
-<!-- dairy_queen %>%  -->
-<!--   filter(cal_fat > 600) %>% -->
-<!--   summarise(percent = n() / nrow(dairy_queen)) -->
-<!-- ``` -->
+If we want to calculate the probability empirically, we need to determine how many observations fall above 600. We could do this by creating a new variable which is 0 or 1 depending on whether `cal_fat` is greater than 600, then take the mean of this column.
 
 Although the probabilities are not exactly the same, they are reasonably close.
 The closer that your distribution is to being normal, the more accurate the theoretical probabilities will be.
