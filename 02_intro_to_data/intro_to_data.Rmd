@@ -68,12 +68,12 @@ Histograms are generally a very good way to see the shape of a single distributi
 
 If you want to visualize only on delays of flights headed to Los Angeles, you need to first `filter` the data for flights with that destination. To do this, return back to the data, where you will see an icon that looks like a funnel at the top left part of the data (to the left of V1 and above row 1).
 
-![filter1](img/filter.png)
+![](img/filter.png)
 
 
 Click this icon to bring up the filter menu. We want to only use arrivals where the destination is Los Angeles, so our condition is `dest=LAX`. Drag the `dest` variable to the middle of the filter menu, then click the equal sign (or type =), then type `LAX` after the equal sign. Click `Apply pass-through filter` at the bottom of the filter menu to filter your data, and you will see parts of your data greyed out, leaving only the requested data. 
 
-![filter2](img/filter2.png)
+![](img/filter2.png)
 
 You can return back to your histogram of `dep_delay`, and will see that it now only uses flights where the destination is Los Angeles. You could also create a new graph (or any other analysis) and it will use only the data that is included using the filter.
 
@@ -81,7 +81,7 @@ You can also obtain numerical summaries for these flights in the `Descriptive St
 
 Filters can also be made based on multiple conditions. Suppose you are interested in flights headed to San Francisco (SFO) in February. Bring up the filter menu, where we will give it two criteria. Similarly to the last filter, we will enter `dest=SFO`. If you apply this filter and look at the very bottom of the JASP window, you will see that of the original 32,735 flights, we are now only considering 1,345 of them. To add the next condition, we click `month`, which starts a second line in our filter menu, then finish the line to make `month=2`.
 
-![filter3](img/filter3.png)
+![](img/filter3.png)
 This leaves us with 68 flights.
 
 You can create more complicated filters as well. If you are interested in either flights headed to SFO **or** in February, you can use the "or" operator, which looks like a capital V (in the same row as the equal sign). By dragging variables and typing in values, a formula of $(dest=SFO) \lor (month=2)$ will give this. To do this, you will need to create $dest=SFO$ and $month=2$ on their own lines, which can then be dragged to the left and to the right of the $\lor$ operator.
@@ -154,9 +154,9 @@ Open the `Descriptives`, and create a table using the newly created variable `de
 
 3.  Replicate the following plot. This plot uses the `ggplot2` color palette, but you can use any color pallet you like.
 
-![plot](img/plot.png)
+![](img/plot.png)
 
-    **Hint:** The data frame plotted only contains flights from American Airlines, Delta Airlines, and United Airlines. You can create a filter, and use the "or" ($\lor$) to select only flights that are from those airlines.
+  **Hint:** The data frame plotted only contains flights from American Airlines, Delta Airlines, and United Airlines. You can create a filter, and use the "or" ($\lor$) to select only flights that are from those airlines.
     Once you replicate the plot, determine (roughly) what the cutoff point is for departure delays where you can still expect to get to your destination on time.
 
 
