@@ -7,9 +7,7 @@ particular chapters in all three versions of OpenIntro Statistics, a free and
 open-source textbook. The textbook as well as the html version of the labs can
 be found at [http://www.openintro.org/stat/labs.php](http://www.openintro.org/stat/labs.php).
 
-This repository is a fork of the original base-R labs. It incorporates 
-the tidyverse syntax from the `dplyr` package for data manipulation, the `ggplot2` 
-package for graphics, and the `infer` package for statistical inference.
+This repository is a fork of the tidyverse labs. It incorporates the program JASP for graphing, data manipulation, and statistical inference.
 
 We currently support our source files in the RMarkdown (.Rmd) format, which can be output into
 html format (though output to pdf is also possible). The source files are processed
