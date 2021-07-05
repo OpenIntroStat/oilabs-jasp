@@ -18,29 +18,7 @@ set.seed(1234)
 In this lab, you will investigate the ways in which the statistics from a random sample of data can serve as point estimates for population parameters.
 We're interested in formulating a *sampling distribution* of our estimate in order to learn about the properties of the estimate, such as its distribution.
 
-::: {#boxedtext}
-**Setting a seed:** We will take some random samples and build sampling distributions in this lab, which means you should set a seed at the start of your lab.
-If this concept is new to you, review the lab on probability.
-:::
-
 ## Getting Started
-
-### Load packages
-
-In this lab, we will explore and visualize the data using the **tidyverse** suite of packages.
-We will also use the **infer** package for resampling.
-
-Let's load the packages.
-
-```{r load-packages, message=FALSE}
-library(tidyverse)
-library(openintro)
-library(infer)
-```
-
-### Creating a reproducible lab report
-
-To create your new lab report, in RStudio, go to New File -\> R Markdown... Then, choose From Template and then choose `Lab Report for OpenIntro Statistics Labs` from the list of templates.
 
 ### The data
 
@@ -56,33 +34,11 @@ In this lab, you will assume this 20% is a true population proportion and learn 
 We will first create our population assuming a population size of 100,000.
 This means 20,000 (20%) of the population think the work scientists do does not benefit them personally and the remaining 80,000 think it does.
 
-```{r}
-global_monitor <- tibble(
-  scientist_work = c(rep("Benefits", 80000), rep("Doesn't benefit", 20000))
-)
-```
+The name of the data frame is `global_monitor` and the name of the variable that contains responses to the question *"Do you believe that the work scientists do benefit people like you?"* is `scientist_work`. The data is [here](global_monitor.csv). 
 
-The name of the data frame is `global_monitor` and the name of the variable that contains responses to the question *"Do you believe that the work scientists do benefit people like you?"* is `scientist_work`.
+We can quickly visualize the distribution of these responses using a bar plot. You can find this in the `Descriptives` menu, by clicking `Distribution plots` in under `Basic plots`.
 
-We can quickly visualize the distribution of these responses using a bar plot.
-
-```{r bar-plot-pop, fig.height=2.5, fig.width=10}
-ggplot(global_monitor, aes(x = scientist_work)) +
-  geom_bar() +
-  labs(
-    x = "", y = "",
-    title = "Do you believe that the work scientists do benefit people like you?"
-  ) +
-  coord_flip() 
-```
-
-We can also obtain summary statistics to confirm we constructed the data frame correctly.
-
-```{r summ-stat-pop, results = TRUE}
-global_monitor %>%
-  count(scientist_work) %>%
-  mutate(p = n /sum(n))
-```
+We can also obtain summary statistics to confirm we constructed the data frame correctly by checking the `Frequency tables` box. 
 
 ## The unknown sampling distribution
 
@@ -90,7 +46,13 @@ In this lab, you have access to the entire population, but this is rarely the ca
 Gathering information on an entire population is often extremely costly or impossible.
 Because of this, we often take a sample of the population and use that to understand the properties of the population.
 
-If you are interested in estimating the proportion of people who don't think the work scientists do benefits them, you can use the `sample_n` command to survey the population.
+If you are interested in estimating the proportion of people who don't think the work scientists do benefits them, you can use the `distrACTION` tool to survey.`sample_n` command to survey the population.
+
+Open the `Binomial` menu in the Discrete section. Since 20% of our population doesn't believe science benefits society, change the probability of success to 0.2. We are going to sample 50 people from the population, so change the number of trials to 50.
+
+Now open the `Generate and Display Data` submenu. Name our new variable `samples` and chanfe number of samples to 1, then click `Draw samples`. Go back to your data set, and you will see a single number in the samples column. This is the number of people from our 50 who responded that science does not benefit society. 
+
+XXXXXXXXXXXX Continue here
 
 ```{r samp1}
 samp1 <- global_monitor %>%
