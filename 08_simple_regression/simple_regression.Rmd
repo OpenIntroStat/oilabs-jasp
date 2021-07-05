@@ -68,7 +68,7 @@ The most common way to do linear regression is to select the line that minimizes
 
 It is rather cumbersome to try to get the correct least squares line, i.e. the line that minimizes the sum of squared residuals, through trial and error.
 
-Instead, you can use JASP to fit the linear model (a.k.a. regression line). Clcik `Regression`, then `Linear Regression` in the classical menu. For the dependent variable, select `pf_score` and for covariates, select `pf_expression_control`.
+Instead, you can use JASP to fit the linear model (a.k.a. regression line). Click `Regression`, then `Linear Regression` in the classical menu. For the dependent variable, select `pf_score` and for covariates, select `pf_expression_control`.
 
 We're going to focus on the table with the title `Coefficients` for this analysis.
 
