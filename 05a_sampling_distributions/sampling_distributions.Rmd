@@ -127,7 +127,7 @@ Note that in practice one rarely gets to build true sampling distributions, beca
 
 Note that for each of the 15,000 times we computed a proportion, we did so from a **different** sample!
 
-1.  To make sure you understand how sampling distributions are built, and exactly what the process does, try modifying the code to create a sampling distribution of **25 sample proportions** from **samples of size 10**, and put them in a data frame named `sample_props_small`. Print the output. How many observations are there in this object called `sample_props_small`? What does each observation represent?
+1.  To make sure you understand how sampling distributions are built, and exactly what the process does, try modifying the process to create a sampling distribution of **25 sample proportions** from **samples of size 10**. How many observations are there in this object? What does each observation represent?
 
 ## Sample size and the sampling distribution
 
