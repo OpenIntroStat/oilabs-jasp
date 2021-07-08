@@ -24,20 +24,18 @@ This paper started a great controversy that continues to this day, as you can se
 
 We do not expect to resolve this controversy today.
 However, in this lab we'll apply one approach to answering questions like this.
-The goals for this lab are to (1) think about the effects of independent and dependent events, (2) learn how to simulate shooting streaks in R, and (3) to compare a simulation to actual data in order to determine if the hot hand phenomenon appears to be real.
+The goals for this lab are to (1) think about the effects of independent and dependent events, (2) learn how to simulate shooting streaks in JASP, and (3) to compare a simulation to actual data in order to determine if the hot hand phenomenon appears to be real.
 
 ## Getting Started
 
 ## Modules
 
-In this lab, we're going to use some code written in the language `R`, which JASP is built on. You won't be working with the code directly, but we'll need to add a module to be able to run R code directly in JASP. Click the plus button add check the `R (Beta)` button to add the R  option to the top menu.
+In this lab, we're going to use some code written in the language `R`, which JASP is built on. You won't be editing the code directly, but we'll need to add a module to be able to run R code directly in JASP. Click the plus button add check the `R (Beta)` button to add the R  option to the top menu.
 
 ### Data
 
 Your investigation will focus on the performance of one player: [Kobe Bryant](https://en.wikipedia.org/wiki/Kobe_Bryant) of the Los Angeles Lakers.
 His performance against the Orlando Magic in the [2009 NBA Finals](https://en.wikipedia.org/wiki/2009_NBA_Finals) earned him the title *Most Valuable Player* and many spectators commented on how he appeared to show a hot hand.
-
-
 
 The data file we'll use is called `kobe_basket`, and you can find it [data](more/kobe_basket.csv).
 
