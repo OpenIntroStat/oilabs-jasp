@@ -131,8 +131,6 @@ Each entry draws one slip from the hat and tells us if it was a head or a tail.
 
 Just like when flipping a coin, sometimes you'll get a heads, sometimes you'll get a tails, but in the long run, you'd expect to get roughly equal numbers of each.
 
-To view the results of this simulation, type the name of the object and then use `table` to count up the number of heads and tails.
-
 Create a table using the `Descriptives` analysis to determine how many 0's and how many 1's there are in your simulation.
 
 We used the default probability that when we "flip" a coin and it lands heads is 0.5.
