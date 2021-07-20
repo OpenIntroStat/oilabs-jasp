@@ -28,7 +28,7 @@ The goals for this lab are to (1) think about the effects of independent and dep
 
 ## Getting Started
 
-## Modules
+### Modules
 
 In this lab, we're going to use some code written in the language `R`, which JASP is built on. You won't be editing the code directly, but we'll need to add a module to be able to run R code directly in JASP. Click the plus button add check the `R (Beta)` button to add the R  option to the top menu.
 
