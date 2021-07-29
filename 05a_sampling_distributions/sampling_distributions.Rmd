@@ -66,7 +66,7 @@ In this lab, you will assume this 20% is a true population proportion and learn 
 We will first create our population assuming a population size of 100,000.
 This means 20,000 (20%) of the population think the work scientists do does not benefit them personally and the remaining 80,000 think it does.
 
-The name of the data frame is `global_monitor` and the name of the variable that contains responses to the question *"Do you believe that the work scientists do benefit people like you?"* is `scientist_work`. The data is [here](global_monitor.csv). 
+The name of the data frame is `global_monitor` and the name of the variable that contains responses to the question *"Do you believe that the work scientists do benefit people like you?"* is `scientist_work`. The data is [here](more/global_monitor.csv). 
 
 We can quickly visualize the distribution of these responses using a bar plot. You can find this in the `Descriptives` menu, by clicking `Distribution plots` under `Basic plots`.
 
@@ -82,7 +82,7 @@ If you are interested in estimating the proportion of people who don't think the
 
 Open the `Binomial` menu in the Discrete section. Since 20% of our population doesn't believe science benefits society, change the probability of success to 0.2. We are going to sample 50 people from the population, so change the number of trials to 50. (Note: We're not quite sampling *from* the population here - we're going to simulate 50 individuals, each of whom has a 20% chance of saying they don't think the work scientists do benefits them. If we actually sampled from the population, the chance of the second person making that statement would change ever so slightly based on the results from the first sample.)
 
-Now open the `Generate and Display Data` submenu. Name our new variable `sample1` and change `number of samples to 1`, then click `Draw samples`. Go back to your data set, and you will see a single number in the `sample1` column. This is the number of people from our 50 who responded that science does not benefit society. Working with these 50 people is considerably simpler than working with all 100,000 people in the population.
+Now open the `Generate and Display Data` submenu. Name our new variable `sample1` and change `number of samples` to 1, then click `Draw samples`. Go back to your data set, and you will see a single number in the `sample1` column. This is the number of people from our 50 who responded that science does not benefit society. Working with these 50 people is considerably simpler than working with all 100,000 people in the population.
 
 1.  Describe the distribution of responses in this sample. How does it compare to the distribution of responses in the population. **Hint:** What proportion of the sample does not believe science benefits society? What proportion of the population believes this? Be careful to not label your proportion `p` since you're now calculating a sample statistic, not a population parameters.
 
