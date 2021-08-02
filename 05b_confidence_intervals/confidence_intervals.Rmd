@@ -22,7 +22,7 @@ This type of situation requires that you use your sample to make inference on wh
 
 ## Getting Started
 
-```{r, message=FALSE}
+```{r, message=FALSE, include=FALSE}
 library(tidyverse)
 library(openintro)
 library(infer)
