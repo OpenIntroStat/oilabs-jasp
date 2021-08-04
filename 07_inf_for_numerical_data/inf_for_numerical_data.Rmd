@@ -74,7 +74,7 @@ Next we can add a confidence interval to our table. Check the box labeled `Locat
 
 ## More Practice
 
-9.  Calculate a 95% confidence interval for the average height in meters (`height`) and interpret it in context.
+9.  Calculate a 95% confidence interval for the average height in meters (`height`) and interpret it in context. (Hint: this is a one-sample t-test, so you need to use the appropriate menu in the t-test pull-down.)
 
 10. Calculate a new confidence interval for the same parameter at the 90% confidence level.
     Comment on the width of this interval versus the one obtained in the previous exercise.
