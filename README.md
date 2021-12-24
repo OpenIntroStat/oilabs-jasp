@@ -25,9 +25,9 @@ creating new ones, please let us know!
 4. [Probability](http://openintrostat.github.io/oilabs-jasp/03_probability/probability.html)
 3. [Normal distribution](http://openintrostat.github.io/oilabs-jasp/04_normal_distribution/normal_distribution.html)
 5. Foundations of inference  
-  a. [Sampling distributions](https://openintro.shinyapps.io/sampling_distributions/)  
-  b. [Confidence intervals](https://openintro.shinyapps.io/confidence_intervals/)
-6. [Inference for categorical data](https://openintro.shinyapps.io/inf_for_categorical_data/)
+  a. [Sampling distributions](https://openintro.shinyapps.io/sampling_distributions_jasp/)  
+  b. [Confidence intervals](https://openintro.shinyapps.io/confidence_intervals_jasp/)
+6. [Inference for categorical data](https://openintro.shinyapps.io/inf_for_categorical_data_jasp/)
 7. [Inference for numerical data](http://openintrostat.github.io/oilabs-jasp/07_inf_for_numerical_data/inf_for_numerical_data.html)
 8. [Simple linear regression](http://openintrostat.github.io/oilabs-jasp/08_simple_regression/simple_regression.html)
 9. [Multiple linear regression](http://openintrostat.github.io/oilabs-jasp/09_multiple_regression/multiple_regression.html)
