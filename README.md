@@ -20,7 +20,7 @@ creating new ones, please let us know!
 
 ## Labs
 
-1. [Intro to R](http://openintrostat.github.io/oilabs-jasp/01_intro_to_jasp/intro_to_jasp.html)
+1. [Intro to Jasp](http://openintrostat.github.io/oilabs-jasp/01_intro_to_jasp/intro_to_jasp.html)
 2. [Intro to data](http://openintrostat.github.io/oilabs-jasp/02_intro_to_data/intro_to_data.html)
 4. [Probability](http://openintrostat.github.io/oilabs-jasp/03_probability/probability.html)
 3. [Normal distribution](http://openintrostat.github.io/oilabs-jasp/04_normal_distribution/normal_distribution.html)
