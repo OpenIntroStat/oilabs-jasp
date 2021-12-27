@@ -9,7 +9,7 @@ It is built on the programming language R, and allows for a variety of statistic
 
 ## Labs
 
-1. [Intro to Jasp](http://openintrostat.github.io/oilabs-jasp/01_intro_to_jasp/intro_to_JASP.html)
+1. [Intro to Jasp](http://openintrostat.github.io/oilabs-jasp/01_intro_to_jasp/intro_to_jasp.html)
 2. [Intro to data](http://openintrostat.github.io/oilabs-jasp/02_intro_to_data/intro_to_data.html)
 4. [Probability](http://openintrostat.github.io/oilabs-jasp/03_probability/probability.html)
 3. [Normal distribution](http://openintrostat.github.io/oilabs-jasp/04_normal_distribution/normal_distribution.html)
