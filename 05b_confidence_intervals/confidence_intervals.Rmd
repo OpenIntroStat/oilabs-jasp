@@ -46,7 +46,7 @@ In this lab, you will assume this 62% is a true population proportion and learn 
 We will first create our population assuming a population size of 100,000.
 This means 62,000 (62%) of the adult population think climate change impacts their community, and the remaining 38,000 does not think so.
 
-The name of the data frame is `us_adults` and the name of the variable that contains responses to the question *"Do you think climate change is affecting your local community?"* is `climate_change_affects`. The file can be found [here](more/us_adults.csv).
+The name of the data frame is `us_adults` and the name of the variable that contains responses to the question *"Do you think climate change is affecting your local community?"* is `climate_change_affects`. The file can be found [here](https://github.com/OpenIntroStat/oilabs-jasp/raw/main/05b_confidence_intervals/more/us_adults.csv).
 
 We can quickly visualize the distribution of these responses using a bar plot. Do this using the `Descriptives` menu.
 
